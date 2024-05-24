@@ -1,1 +1,10 @@
-<p>Hello From Html</p>
+<input (keyup)="changeImage($event)" [value]="id" />
+
+<app-post [postImg]="imgURL" (imgSelected)="logImg($event)">
+  <p>Some caption in app component</p>
+</app-post>
+
+<p>Hello {{ name | uppercase }}!</p>
+<p>Hello {{ getName() }}!</p>
+<p>{{ 15 + 13 }}</p>
+<p>{{ currentDate | date: 'MMMM d' }}</p>
