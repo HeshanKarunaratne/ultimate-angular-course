@@ -1,3 +1,18 @@
+<p *ngIf="blueClass">Condition</p>
+
+<ul>
+  <li *ngFor="let course of courses">{{ course }}</li>
+</ul>
+
+<button
+  [ngClass]="{ blue: blueClass, red: !blueClass }"
+  (click)="blueClass = !blueClass"
+  [ngStyle]="{ 'font-size.px': fontSize }"
+>
+  Change
+</button>
+<hr />
+
 <input (keyup)="changeImage($event)" [value]="id" />
 
 <app-post [postImg]="imgURL" (imgSelected)="logImg($event)">
@@ -7,4 +22,4 @@
 <p>Hello {{ name | uppercase }}!</p>
 <p>Hello {{ getName() }}!</p>
 <p>{{ 15 + 13 }}</p>
-<p>{{ currentDate | date: 'MMMM d' }}</p>
+<p>{{ currentDate | date : "MMMM d" }}</p>

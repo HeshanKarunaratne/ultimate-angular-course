@@ -26,6 +26,16 @@ npx tsc $file_name
 
 - Create new component
 ng g c $component_name
+
+- Install Tailwind
+npm install -D tailwindcss
+npx tailwind init
+
+- Generating modules
+ng g module $module_name
+
+- Generate a service
+ng g s $service_name
 ```
 
 #### JIT vs AOT Compiler
@@ -257,4 +267,76 @@ export class PostComponent implements OnInit, OnChanges, OnDestroy {
 
 ```html
 <p>{{ currentDate | date: 'yyyy:MM:dd' }}</p>
+```
+
+#### Directives
+
+#### ngClass
+
+```html
+<button
+  [ngClass]="{ blue: blueClass, red: !blueClass }"
+  (click)="blueClass = !blueClass"
+>
+  Change
+</button>
+```
+
+```ts
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+})
+export class AppComponent {
+  blueClass = false;
+}
+```
+
+```css
+.blue {
+  background-color: blue;
+  color: white;
+}
+.red {
+  background-color: red;
+  color: white;
+}
+```
+
+#### ngStyle
+
+```html
+<button
+  [ngClass]="{ blue: blueClass, red: !blueClass }"
+  (click)="blueClass = !blueClass"
+  [ngStyle]="{ 'font-size.px': fontSize }"
+>
+  Change
+</button>
+```
+
+```ts
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+})
+export class AppComponent {
+  fontSize = 16;
+}
+```
+
+#### ngIf
+
+- Can either use from below 2 options
+
+```html
+<ng-template [ngIf]="blueClass">Condition</ng-template>
+
+<p *ngIf="blueClass">Condition</p>
 ```

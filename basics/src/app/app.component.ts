@@ -10,7 +10,9 @@ export class AppComponent {
   name = 'heshan';
   imgURL = 'https://picsum.photos/id/237/500/500';
   currentDate = new Date();
-
+  blueClass = false;
+  fontSize = 16;
+  courses = ['maths', 'physics', 'chem'];
   getName() {
     return this.name;
   }
